@@ -1,0 +1,52 @@
+{% extends '::view.html.twig' %}
+
+{% block page_title %}FAQ-TI{% endblock %}
+
+{% block page_subtitle %}pesquisar{% endblock %}
+
+
+{% block page_content %}
+
+    <div class="box">
+        <div class="box-body">
+
+            <table class="table table-bordered table-striped table-responsive table-condensed table-hover table-datatable">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Titulo</th>
+                    <th>Tags</th>
+                    <th>Grupo</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for faqti in faqtis %}
+                    <tr>
+                        <td>
+
+                            <a href="{{ path('faqti_show', { 'id': faqti.id }) }}" class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+
+                            <a href="{{ path('faqti_edit', { 'id': faqti.id }) }}" class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+
+                        </td>
+                        <td>{{ faqti.titulo }}</td>
+                        <td>{{ faqti.tags }}</td>
+                        <td>{{ faqti.grupo }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/app/js/mrs-dataTable.js') }}" ></script>
+
+{% endblock %}

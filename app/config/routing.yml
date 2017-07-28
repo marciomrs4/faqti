@@ -1,0 +1,6 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+#avanzu_admin:
+#    resource: "@AvanzuAdminThemeBundle/Resources/config/routes.yml"

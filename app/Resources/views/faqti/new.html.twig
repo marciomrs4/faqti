@@ -1,0 +1,27 @@
+{% extends '::view.html.twig' %}
+
+
+{% block page_title %}FAQ-TI{% endblock %}
+
+{% block page_subtitle %}Novo{% endblock %}
+
+{% block page_content %}
+
+    <div class="box">
+        <div class="box-body">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+            </button>
+            {{ form_end(form) }}
+        </div>
+
+        <div class="box-footer">
+            <a href="{{ path('faqti_index') }}" class="btn btn-primary btn-sm">
+                <span class="fa fa-list"></span>
+            </a>
+        </div>
+
+    </div>
+{% endblock %}

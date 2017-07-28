@@ -1,0 +1,224 @@
+{% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}
+
+{% block title %}TI{% endblock %}
+
+{% block page_title %}{% endblock %}
+
+{% block page_subtitle %}{% endblock %}
+
+{% block avanzu_sidebar %}
+
+    <ul class="sidebar-menu">
+
+        <li class="treeview">
+            <a href="{{ path('home') }}">
+                <i class="fa fa-paw"></i><span>Home</span>
+            </a>
+        </li>
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-navicon"></i>
+                <span>Informações</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="{{ path('app_userschedule_index') }}"><i class="fa fa-exchange"></i>Escalas</a></li>
+            </ul>
+        </li>
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-question-circle"></i>
+                <span>FaqTI</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="{{ path('faqti_index') }}"><i class="fa fa-search"></i>Pesquisar</a></li>
+                <li><a href="{{ path('faqti_new') }}"><i class="fa fa-plus"></i>Registrar</a></li>
+            </ul>
+        </li>
+{#
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-folder"></i>
+                <span>Relatórios</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/inventario/report/equipamento/equipamentos"><i class="fa fa-file-text-o"></i>Equipamentos</a></li>
+                <li><a href="/inventario/report/equipamento/listinventario"><i class="fa fa-file-text-o"></i>Lista de Inventário</a></li>
+                <li><a href="/inventario/report/equipamento/comprados"><i class="fa fa-file-text-o"></i>Equipamentos Comprados</a></li>
+                <li><a href="/inventario/report/movimentacao/"><i class="fa fa-file-text-o"></i>Movimentações</a></li>
+
+                <li>
+                    <a href="#"><i class="fa fa-file"></i>Acompanhamento<i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="/inventario/report/acompanhamento/equipamento"><i class="fa fa-file-text-o"></i>Acompanhamentos</a></li>
+                        <li><a href="/inventario/report/acompanhamento/equipamentonoacompanhamento"><i class="fa fa-file-text-o"></i>Sem Acompanhamento</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+
+        <li class="treeview">
+
+            <a href="#">
+                <i class="fa fa-sliders"></i> <span>Cadastros</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+
+            <ul class="treeview-menu">
+
+                <li>
+                    <a href="/inventario/cadastro/unidade/"><i class="fa fa-university"></i>Unidade</a>
+                </li>
+                <li>
+                    <a href="/inventario/cadastro/centromovimentacao/"><i class="fa fa-sitemap"></i>Centro de Movimentacao</a>
+                </li>
+                <li>
+                    <a href="/inventario/cadastro/usuario/"><i class="fa fa-user"></i>Usuários</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-gears"></i>Cadastro de Movimentação<i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="/inventario/cadastro/tipomovimentacao/"><i class="glyphicon glyphicon-retweet"></i>Tipo de Movimentação</a></li>
+                        <li><a href="/inventario/cadastro/motivomovimentacao/"><i class="glyphicon glyphicon-transfer"></i>Motivo de Movimentação</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-gears"></i>Cadastro de Equipamento<i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="/inventario/cadastro/equipamento/"><i class="fa fa-desktop"></i>Equipamento</a></li>
+                        <li><a href="/inventario/cadastro/tipoequipamento/"><i class="fa fa-mobile"></i>Tipo de Equipamento</a></li>
+                        <li><a href="/inventario/cadastro/fornecedor/"><i class="fa fa-truck"></i>Fornecedor</a></li>
+                        <li><a href="/inventario/cadastro/marca/"><i class="fa fa-trademark"></i>Marca</a></li>
+                        <li><a href="/inventario/cadastro/tipoacompanhamento/"><i class="fa fa-calendar-check-o"></i>Tipo de Acompanhamento</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-gears"></i>Cadastro de Software<i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="/inventario/cadastro/software/"><i class="fa fa-windows"></i>Software</a></li>
+                        <li><a href="/inventario/cadastro/tiposoftware/"><i class="fa fa-chrome"></i>Tipo de Software</a></li>
+                        <li><a href="/inventario/cadastro/fornecedorsoftware/"><i class="fa fa-truck"></i>Fornecedor de Software</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-gears"></i>Cadastro de Componente<i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="/inventario/cadastro/componente/"><i class="fa fa-plug"></i>Componente</a></li>
+                        <li><a href="/inventario/cadastro/tipocomponente/"><i class="fa fa-microphone"></i>Tipo de Componente</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </li>
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-signal"></i>
+                <span>Gerênciamento de IP</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/inventario/cadastro/enderecoip/"><i class="fa fa-wifi"></i>Controle de IP</a></li>
+                <li><a href="/inventario/cadastro/statusip/"><i class="fa fa-sort"></i>Status</a></li>
+                <li><a href="/inventario/cadastro/tipoacessoip/"><i class="fa fa-unlock-alt"></i>Tipo de Acesso</a></li>
+            </ul>
+        </li>
+
+        <li class="treeview">
+            <a href="#">
+                <i class="glyphicon glyphicon-lock"></i>
+                <span>Acessos</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/inventario/admin/usuario/"><i class="fa fa-male"></i>Login</a></li>
+            </ul>
+        </li>
+        #}
+
+    </ul>
+
+{% endblock %}
+
+{% block page_content %}
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading bg-blue">
+        </div>
+
+        <!-- /.box-header -->
+        <div class="panel-body">
+
+            <div class="box box-widget widget-user">
+                <!-- Add the bg color to the header using any of the bg-* classes -->
+                <div class="widget-user-header bg-blue">
+                    <h3 class="widget-user-username">
+                        <strong>CEADIS</strong>
+                    </h3>
+                    <h5 class="widget-user-desc">
+                        Tecnologia
+                    </h5>
+                </div>
+                <div class="widget-user-image">
+                </div>
+                <div class="box-footer">
+                    <div class="row">
+                        <div class="col-sm-4 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header">Tecnologia</h5>
+                                <span class="description-text">Central de Informações</span>
+                            </div>
+                            <!-- /.description-block -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header">1.0.0</h5>
+                                <span class="description-text">VERSÃO</span>
+                            </div>
+                            <!-- /.description-block -->
+                        </div>
+
+                        <div class="col-sm-4 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header">2017</h5>
+                                <span class="description-text">TI-CEADIS</span>
+                            </div>
+                            <!-- /.description-block -->
+                        </div>
+                        <!-- /.col -->
+
+                    </div>
+                    <!-- /.row -->
+                </div>
+            </div>
+            <!-- /.widget-user -->
+
+
+        </div>
+        <!-- /.box-body -->
+
+    </div>
+
+{% endblock %}
+
+
+{% block avanzu_admin_footer %}
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 1.0.0
+        </div>
+        <strong>Tecnologia {{ 'now'|date('Y') }}</strong>
+    </footer>
+{% endblock %}
