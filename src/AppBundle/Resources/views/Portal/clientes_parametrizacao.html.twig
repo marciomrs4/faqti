@@ -1,0 +1,55 @@
+{% extends "::base.html.twig" %}
+
+{% block page_title %}FAQ-TI{% endblock %}
+
+{% block page_subtitle %}Parâmetros Clientes{% endblock %}
+
+
+{% block page_content %}
+
+
+    <div class="box">
+        <div class="box-body">
+
+            <table class="table table-bordered table-striped table-responsive table-condensed table-hover table-datatable">
+                <thead>
+                <tr>
+                    <th>Referência</th>
+                    <th>Descrição</th>
+                    <th>Periodicidade</th>
+                    <th>Número de Peridos</th>
+                    <th>Ignora Consumo Zero ?</th>
+                    <th>Intervalo de Estoque Minimo (DIAS)</th>
+                    <th>Intervalo de Estoque Máximo (DIAS)</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for cliente in clientesParameters %}
+                    <tr>
+                        <td>{{ cliente.referencia }}</td>
+                        <td>{{ cliente.descricao }}</td>
+                        <td>{{ cliente.periodicidade }}</td>
+                        <td>{{ cliente.numperiodos }}</td>
+                        <td>
+                            {% if cliente.ignorarconsumozero == true %}
+                                SIM
+                            {% else %}
+                                Não
+                            {% endif %}
+                        </td>
+                        <td>{{ cliente.intervaloestoquemindias }}</td>
+                        <td>{{ cliente.intervaloestoquemaxdias }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/app/js/mrs-dataTable.js') }}" ></script>
+
+{% endblock %}

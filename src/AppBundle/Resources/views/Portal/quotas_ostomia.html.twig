@@ -1,0 +1,43 @@
+{% extends "::base.html.twig" %}
+
+{% block page_title %}FAQ-TI{% endblock %}
+
+{% block page_subtitle %}Quotas Divergentes{% endblock %}
+
+
+{% block page_content %}
+
+
+    <div class="box">
+        <div class="box-body">
+
+            <table class="table table-bordered table-striped table-responsive table-condensed table-hover table-datatable">
+                <thead>
+                <tr>
+                    <th>Referência</th>
+                    <th>Quota</th>
+                    <th>Estoque</th>
+                    <th>Diferença</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for estoque in ostomiaEstoque %}
+                    <tr>
+                        <td>{{ estoque.referencia }}</td>
+                        <td>{{ estoque.quota }}</td>
+                        <td>{{ estoque.estoque }}</td>
+                        <td>{{ estoque.estoque - estoque.quota }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/app/js/mrs-dataTable.js') }}" ></script>
+
+{% endblock %}

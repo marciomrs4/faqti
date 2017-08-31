@@ -35,3 +35,7 @@ services:
     #         $someArgument: 'some_value'
 
     # ...
+    http.client:
+        class: AppBundle\Service\HttpClientService
+        public: true
+        autowire: false

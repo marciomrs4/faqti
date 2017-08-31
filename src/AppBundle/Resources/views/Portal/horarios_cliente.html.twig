@@ -1,0 +1,52 @@
+{% extends "::base.html.twig" %}
+
+{% block page_title %}FAQ-TI{% endblock %}
+
+{% block page_subtitle %}Horários de corte dos Clientes{% endblock %}
+
+
+{% block page_content %}
+
+<div class="box">
+    <div class="box-body">
+
+        <table class="table table-bordered table-striped table-responsive table-condensed table-hover table-datatable">
+            <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Estabelecimento</th>
+                <th>Domingo</th>
+                <th>Segunda</th>
+                <th>Terça</th>
+                <th>Quarta</th>
+                <th>Quinta</th>
+                <th>Sexta</th>
+                <th>Sábado</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for horario in horariosClientes %}
+                <tr>
+                    <td>{{ horario.Cliente }}</td>
+                    <td>{{ horario.Estabelecimento }}</td>
+                    <td>{{ horario.Domingo }}</td>
+                    <td>{{ horario.Segunda }}</td>
+                    <td>{{ horario.Terca }}</td>
+                    <td>{{ horario.Quarta }}</td>
+                    <td>{{ horario.Quinta }}</td>
+                    <td>{{ horario.Sexta }}</td>
+                    <td>{{ horario.Sabado }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/app/js/mrs-dataTable.js') }}" ></script>
+
+{% endblock %}
