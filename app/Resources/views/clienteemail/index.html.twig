@@ -1,0 +1,56 @@
+{% extends '::view.html.twig' %}
+
+{% block page_title %}Cliente{% endblock %}
+
+{% block page_subtitle %}Lista de Email{% endblock %}
+
+{% block page_content %}
+
+    <a href="{{ path('clienteemail_new') }}" class="btn btn-primary btn-sm">
+        <span class="fa fa-plus"></span>
+    </a>
+
+    <div class="box">
+        <div class="box-body">
+
+            <table class="table table-bordered table-striped table-responsive table-condensed table-hover table-datatable">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Cliente</th>
+                    <th>Email(s)</th>
+                    <th>Mensagem</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for clienteEmail in clienteEmails %}
+                    <tr>
+                        <td>
+
+                            <a href="{{ path('clienteemail_show', { 'id': clienteEmail.id }) }}" class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+
+                            <a href="{{ path('clienteemail_edit', { 'id': clienteEmail.id }) }}" class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+
+                        </td>
+                        <td>{{ clienteEmail.cliente }}</td>
+                        <td>{{ clienteEmail.emails }}</td>
+                        <td>{{ clienteEmail.mensagem }}</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/app/js/mrs-dataTable.js') }}" ></script>
+
+{% endblock %}

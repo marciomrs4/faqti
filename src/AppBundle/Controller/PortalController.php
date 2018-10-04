@@ -11,7 +11,8 @@ class PortalController extends Controller
 
     private function dataFromUrl($urlFromAction)
     {
-        $urlParameter = $this->get('service_container')->getParameter('url_rest_service');
+        $urlParameter = $this->get('service_container')
+                             ->getParameter('url_rest_service');
 
         $httpCliente = $this->get('http.client');
 
@@ -27,7 +28,7 @@ class PortalController extends Controller
     public function horariosClienteAction()
     {
 
-        $horariosClientes = $this->dataFromUrl('portal/horarios/json');
+        $horariosClientes = $this->dataFromUrl('horarios/json');
 
         return $this->render('AppBundle:Portal:horarios_cliente.html.twig', array(
             'horariosClientes' => $horariosClientes
@@ -40,7 +41,7 @@ class PortalController extends Controller
      */
     public function quotasOstomiaAction()
     {
-        $ostomiaEstoque = $this->dataFromUrl('portal/quotas/json');
+        $ostomiaEstoque = $this->dataFromUrl('quotas/json');
 
         return $this->render('AppBundle:Portal:quotas_ostomia.html.twig', array(
             'ostomiaEstoque' => $ostomiaEstoque
@@ -53,7 +54,7 @@ class PortalController extends Controller
      */
     public function clientesParametrizacaoAction()
     {
-        $clientesParameters = $this->dataFromUrl('portal/clientes/json');
+        $clientesParameters = $this->dataFromUrl('clientes/json');
 
         return $this->render('AppBundle:Portal:clientes_parametrizacao.html.twig', array(
             'clientesParameters' => $clientesParameters
