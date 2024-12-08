@@ -8,10 +8,10 @@ security:
             memory:
                 users:
                     admin:
-                          password: C34d15
+                          password: 
                           roles: 'ROLE_ADMIN'
                     marcio:
-                          password: 1qaz2wsx
+                          password: 
                           roles: 'ROLE_SUPER_ADMIN'
 
     encoders:
